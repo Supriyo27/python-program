@@ -1,4 +1,3 @@
-#write a program to impliment a singly linked list
 class Node:
     def __init__(self, data):
         self.data = data  # Assign data
@@ -49,3 +48,35 @@ class SinglyLinkedList:
 
     def search(self, key):
         current = self.head
+        while current:
+            if current.data == key:
+                return True
+            current = current.next
+        return False
+
+    def display(self):
+        current = self.head
+        while current:
+            print(current.data, end=" -> ")
+            current = current.next
+        print("None")
+
+
+# Example usage
+if __name__ == "__main__":
+    ll = SinglyLinkedList()
+
+    ll.insert_at_end(10)
+    ll.insert_at_end(20)
+    ll.insert_at_beginning(5)
+    ll.insert_at_end(30)
+
+    print("Linked List:")
+    ll.display()
+
+    print("Searching for 20:", ll.search(20))
+    print("Searching for 99:", ll.search(99))
+
+    print("Deleting node with value 10")
+    ll.delete_node(10)
+    ll.display()
